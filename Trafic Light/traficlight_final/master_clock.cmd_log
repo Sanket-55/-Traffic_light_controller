@@ -1,0 +1,7 @@
+vhdtdtfi -lib work master_clock.vhd -prj traficlight_final -o master_clock.spl -module master_clock -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 master_clock.spl {C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/master_clock.sym} 
+vhdtdtfi -prj traficlight_final -o "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/master_clock.vhi" -module master_clock -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work master_clock.vhd 
+vhdtdtfi -prj traficlight_final -o "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/master_clock.vhi" -module master_clock -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work master_clock.vhd 
+vhdtdtfi -prj traficlight_final -o "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/master_clock.vhi" -module master_clock -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work master_clock.vhd 
+vhdtdtfi -prj traficlight_final -o "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/master_clock.vhi" -module master_clock -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work master_clock.vhd 
+vhdtdtfi -prj traficlight_final -o "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/master_clock.vhi" -module master_clock -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work master_clock.vhd 

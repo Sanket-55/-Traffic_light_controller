@@ -1,0 +1,34 @@
+V3 23
+FL "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd" 2022/12/12.06:16:39 P.20131013
+EN work/left 1670857527 \
+      FL "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/left/Behavioral 1670857528 \
+      FL "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd" EN work/left 1670857527
+FL "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd" 2022/12/12.20:16:06 P.20131013
+EN work/lights 1670857525 \
+      FL "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/lights/Behavioral 1670857526 \
+      FL "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd" EN work/lights 1670857525
+FL "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd" 2022/12/12.20:35:18 P.20131013
+EN work/master_clock 1670857523 \
+      FL "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/master_clock/Behavioral 1670857524 \
+      FL "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd" \
+      EN work/master_clock 1670857523
+FL "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd" 2022/12/09.09:20:58 P.20131013
+EN work/tpm 1670857529 FL "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/tpm/Behavioral 1670857530 \
+      FL "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd" EN work/tpm 1670857529 \
+      CP master_clock CP lights CP left
+FL "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/left.vhd" 2022/12/09.09:22:34 P.20131013
+FL "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/lights.vhd" 2022/12/09.09:01:55 P.20131013
+FL "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/master_clock.vhd" 2022/12/09.08:59:20 P.20131013
+FL "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/tpm.vhd" 2022/12/09.09:20:56 P.20131013
+FL G:/AMEY_3744/traficlight_final/left.vhd 2022/12/09.12:04:10 P.20131013
+FL G:/AMEY_3744/traficlight_final/lights.vhd 2022/12/09.12:04:19 P.20131013
+FL G:/AMEY_3744/traficlight_final/master_clock.vhd 2022/12/09.08:59:22 P.20131013
+FL G:/AMEY_3744/traficlight_final/tpm.vhd 2022/12/09.09:20:58 P.20131013

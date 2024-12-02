@@ -1,0 +1,4 @@
+vhdl isim_temp "master_clock.vhd"
+vhdl isim_temp "lights.vhd"
+vhdl isim_temp "left.vhd"
+vhdl isim_temp "tpm.vhd"

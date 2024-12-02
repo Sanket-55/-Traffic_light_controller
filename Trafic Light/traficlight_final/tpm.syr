@@ -1,0 +1,854 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: tpm.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "tpm.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "tpm"
+Output Format                      : NGC
+Target Device                      : xc3s400-4-pq208
+
+---- Source Options
+Top Module Name                    : tpm
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd" in Library work.
+Entity <master_clock> compiled.
+Entity <master_clock> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd" in Library work.
+Entity <lights> compiled.
+Entity <lights> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd" in Library work.
+Architecture behavioral of Entity left is up to date.
+Compiling vhdl file "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd" in Library work.
+Architecture behavioral of Entity tpm is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <tpm> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <master_clock> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <lights> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <left> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <tpm> in library <work> (Architecture <behavioral>).
+Entity <tpm> analyzed. Unit <tpm> generated.
+
+Analyzing Entity <master_clock> in library <work> (Architecture <behavioral>).
+Entity <master_clock> analyzed. Unit <master_clock> generated.
+
+Analyzing Entity <lights> in library <work> (Architecture <behavioral>).
+Entity <lights> analyzed. Unit <lights> generated.
+
+Analyzing Entity <left> in library <work> (Architecture <behavioral>).
+Entity <left> analyzed. Unit <left> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <master_clock>.
+    Related source file is "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd".
+    Found 24-bit comparator lessequal for signal <o$cmp_le0000> created at line 31.
+    Found 24-bit up counter for signal <temp>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Comparator(s).
+Unit <master_clock> synthesized.
+
+
+Synthesizing Unit <lights>.
+    Related source file is "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd".
+WARNING:Xst:653 - Signal <rst> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 16                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 16                                             |
+    | Clock              | i2                        (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | a                                              |
+    | Power Up State     | a                                              |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 1-bit latch for signal <my4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my4$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my4$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my3$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my3$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my2$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my2$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my1$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <my1$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr4$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr4$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr4$mux0003>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr3$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr3$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr3$mux0003>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr2$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr2$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr1$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mr1$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg4$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg4$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg3$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg3$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg2$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg2$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg1$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <mg1$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 32-bit up counter for signal <j>.
+    Found 8-bit comparator equal for signal <j$cmp_eq0000> created at line 23.
+    Found 32-bit comparator greater for signal <mr2$cmp_gt0000> created at line 73.
+    Found 32-bit comparator greater for signal <mr2$cmp_gt0001> created at line 88.
+    Found 32-bit comparator lessequal for signal <state$cmp_le0000> created at line 43.
+    Found 32-bit comparator lessequal for signal <state$cmp_le0001> created at line 58.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   5 Comparator(s).
+Unit <lights> synthesized.
+
+
+Synthesizing Unit <left>.
+    Related source file is "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd".
+Unit <left> synthesized.
+
+
+Synthesizing Unit <tpm>.
+    Related source file is "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd".
+Unit <tpm> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 24-bit up counter                                     : 1
+ 32-bit up counter                                     : 1
+# Latches                                              : 36
+ 1-bit latch                                           : 36
+# Comparators                                          : 6
+ 24-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 2
+ 32-bit comparator lessequal                           : 2
+ 8-bit comparator equal                                : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <ligh1/state/FSM> on signal <state[1:8]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ a     | 00000001
+ b     | 00000010
+ c     | 00000100
+ d     | 00001000
+ e     | 00010000
+ f     | 00100000
+ g     | 01000000
+ h     | 10000000
+-------------------
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg1_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg1_mux0001>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg2_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg2_mux0001>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg3_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg3_mux0001>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg4_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mg4_mux0001>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mr3_mux0003>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <mr4_mux0003>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my1_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my1_mux0001>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my2_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my2_mux0001>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my3_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my3_mux0001>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my4_mux0002>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <my4_mux0001>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Counters                                             : 2
+ 24-bit up counter                                     : 1
+ 32-bit up counter                                     : 1
+# Latches                                              : 36
+ 1-bit latch                                           : 36
+# Comparators                                          : 6
+ 24-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 2
+ 32-bit comparator lessequal                           : 2
+ 8-bit comparator equal                                : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <my4_mux0002> (without init value) has a constant value of 0 in block <lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <my4_mux0001> (without init value) has a constant value of 0 in block <lights>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <tpm> ...
+
+Optimizing unit <lights> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block tpm, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 64
+ Flip-Flops                                            : 64
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : tpm.ngr
+Top Level Output File Name         : tpm
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 17
+
+Cell Usage :
+# BELS                             : 299
+#      GND                         : 1
+#      INV                         : 10
+#      LUT1                        : 62
+#      LUT2                        : 24
+#      LUT3                        : 9
+#      LUT3_L                      : 1
+#      LUT4                        : 36
+#      LUT4_L                      : 1
+#      MUXCY                       : 98
+#      VCC                         : 1
+#      XORCY                       : 56
+# FlipFlops/Latches                : 76
+#      FDR                         : 63
+#      FDS                         : 1
+#      LD                          : 12
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 16
+#      OBUF                        : 16
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400pq208-4 
+
+ Number of Slices:                       76  out of   3584     2%  
+ Number of Slice Flip Flops:             66  out of   7168     0%  
+ Number of 4 input LUTs:                143  out of   7168     1%  
+ Number of IOs:                          17
+ Number of bonded IOBs:                  17  out of    141    12%  
+    IOB Flip Flops:                      10
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------------------------------------+------------------------------+-------+
+Clock Signal                                                     | Clock buffer(FF name)        | Load  |
+-----------------------------------------------------------------+------------------------------+-------+
+clk                                                              | BUFGP                        | 24    |
+q1(ms1/Mcompar_o_cmp_le0000_cy<13>:O)                            | BUFG(*)(ligh1/state_FSM_FFd8)| 40    |
+ligh1/my4_not0001(ligh1/my4_not00011:O)                          | NONE(*)(ligh1/my4)           | 1     |
+ligh1/my3_not0001(ligh1/my3_not00011:O)                          | NONE(*)(ligh1/my3)           | 1     |
+ligh1/my2_not0001(ligh1/my2_not00011:O)                          | NONE(*)(ligh1/my2)           | 1     |
+ligh1/my1_not0001(ligh1/my1_not00011:O)                          | NONE(*)(ligh1/my1)           | 1     |
+ligh1/mr2_not0001(ligh1/mr2_not00011:O)                          | NONE(*)(ligh1/mr2)           | 1     |
+ligh1/mr1_not0001(ligh1/mr1_not00011:O)                          | NONE(*)(ligh1/mr1)           | 1     |
+ligh1/mg4_not0001(ligh1/mg4_not00011:O)                          | NONE(*)(ligh1/mg4)           | 1     |
+ligh1/mg3_not0001(ligh1/mg3_not00011:O)                          | NONE(*)(ligh1/mg3)           | 1     |
+ligh1/mg2_not0001(ligh1/mg2_not00011:O)                          | NONE(*)(ligh1/mg2)           | 1     |
+ligh1/mg1_not0001(ligh1/mg1_not00011:O)                          | NONE(*)(ligh1/mg1)           | 1     |
+ligh1/state_cmp_le0000(ligh1/Mcompar_state_cmp_le0000_cy<11>:O)  | NONE(*)(ligh1/mr4_mux0001)   | 1     |
+ligh1/state_cmp_le0001(ligh1/Mcompar_state_cmp_le0000_cy<11>_0:O)| NONE(*)(ligh1/mr4_mux0002)   | 1     |
+-----------------------------------------------------------------+------------------------------+-------+
+(*) These 13 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 9.586ns (Maximum Frequency: 104.318MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 12.054ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.377ns (frequency: 156.814MHz)
+  Total number of paths / destination ports: 876 / 48
+-------------------------------------------------------------------------
+Delay:               6.377ns (Levels of Logic = 7)
+  Source:            ms1/temp_8 (FF)
+  Destination:       ms1/temp_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: ms1/temp_8 to ms1/temp_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.720   1.246  ms1/temp_8 (ms1/temp_8)
+     LUT4:I0->O            1   0.551   0.000  ms1/temp_cmp_eq0000_wg_lut<0> (ms1/temp_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.500   0.000  ms1/temp_cmp_eq0000_wg_cy<0> (ms1/temp_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/temp_cmp_eq0000_wg_cy<1> (ms1/temp_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/temp_cmp_eq0000_wg_cy<2> (ms1/temp_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/temp_cmp_eq0000_wg_cy<3> (ms1/temp_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/temp_cmp_eq0000_wg_cy<4> (ms1/temp_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O          24   0.281   1.797  ms1/temp_cmp_eq0000_wg_cy<5> (ms1/temp_cmp_eq0000)
+     FDR:R                     1.026          ms1/temp_0
+    ----------------------------------------
+    Total                      6.377ns (3.334ns logic, 3.043ns route)
+                                       (52.3% logic, 47.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'q1'
+  Clock period: 9.586ns (frequency: 104.318MHz)
+  Total number of paths / destination ports: 5742 / 72
+-------------------------------------------------------------------------
+Delay:               9.586ns (Levels of Logic = 15)
+  Source:            ligh1/j_0 (FF)
+  Destination:       ligh1/j_31 (FF)
+  Source Clock:      q1 rising
+  Destination Clock: q1 rising
+
+  Data Path: ligh1/j_0 to ligh1/j_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.720   1.246  ligh1/j_0 (ligh1/j_0)
+     LUT2:I0->O            1   0.551   0.000  ligh1/Mcompar_state_cmp_le0000_lut<0> (ligh1/Mcompar_state_cmp_le0000_lut<0>)
+     MUXCY:S->O            1   0.500   0.000  ligh1/Mcompar_state_cmp_le0000_cy<0> (ligh1/Mcompar_state_cmp_le0000_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<1> (ligh1/Mcompar_state_cmp_le0000_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<2> (ligh1/Mcompar_state_cmp_le0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<3> (ligh1/Mcompar_state_cmp_le0000_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<4> (ligh1/Mcompar_state_cmp_le0000_cy<4>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<5> (ligh1/Mcompar_state_cmp_le0000_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<6> (ligh1/Mcompar_state_cmp_le0000_cy<6>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<7> (ligh1/Mcompar_state_cmp_le0000_cy<7>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<8> (ligh1/Mcompar_state_cmp_le0000_cy<8>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<9> (ligh1/Mcompar_state_cmp_le0000_cy<9>)
+     MUXCY:CI->O           1   0.064   0.000  ligh1/Mcompar_state_cmp_le0000_cy<10> (ligh1/Mcompar_state_cmp_le0000_cy<10>)
+     MUXCY:CI->O          21   0.281   1.541  ligh1/Mcompar_state_cmp_le0000_cy<11> (ligh1/state_cmp_le0000)
+     LUT4_L:I3->LO         1   0.551   0.126  ligh1/j_cmp_eq0000_inv70 (ligh1/j_cmp_eq0000_inv70)
+     LUT4:I3->O           32   0.551   1.853  ligh1/j_cmp_eq0000_inv79 (ligh1/j_cmp_eq0000_inv)
+     FDR:R                     1.026          ligh1/j_0
+    ----------------------------------------
+    Total                      9.586ns (4.820ns logic, 4.766ns route)
+                                       (50.3% logic, 49.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/mg1_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/mg1 (LATCH)
+  Destination:       g1 (PAD)
+  Source Clock:      ligh1/mg1_not0001 falling
+
+  Data Path: ligh1/mg1 to g1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/mg1 (ligh1/mg1)
+     OBUF:I->O                 5.644          g1_OBUF (g1)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/mg2_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/mg2 (LATCH)
+  Destination:       g2 (PAD)
+  Source Clock:      ligh1/mg2_not0001 falling
+
+  Data Path: ligh1/mg2 to g2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/mg2 (ligh1/mg2)
+     OBUF:I->O                 5.644          g2_OBUF (g2)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/mg3_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/mg3 (LATCH)
+  Destination:       g3 (PAD)
+  Source Clock:      ligh1/mg3_not0001 falling
+
+  Data Path: ligh1/mg3 to g3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/mg3 (ligh1/mg3)
+     OBUF:I->O                 5.644          g3_OBUF (g3)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/mg4_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/mg4 (LATCH)
+  Destination:       g4 (PAD)
+  Source Clock:      ligh1/mg4_not0001 falling
+
+  Data Path: ligh1/mg4 to g4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/mg4 (ligh1/mg4)
+     OBUF:I->O                 5.644          g4_OBUF (g4)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 96 / 4
+-------------------------------------------------------------------------
+Offset:              10.653ns (Levels of Logic = 16)
+  Source:            ms1/temp_0 (FF)
+  Destination:       L1 (PAD)
+  Source Clock:      clk rising
+
+  Data Path: ms1/temp_0 to L1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.720   1.246  ms1/temp_0 (ms1/temp_0)
+     LUT4:I0->O            1   0.551   0.000  ms1/Mcompar_o_cmp_le0000_lut<0> (ms1/Mcompar_o_cmp_le0000_lut<0>)
+     MUXCY:S->O            1   0.500   0.000  ms1/Mcompar_o_cmp_le0000_cy<0> (ms1/Mcompar_o_cmp_le0000_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<1> (ms1/Mcompar_o_cmp_le0000_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<2> (ms1/Mcompar_o_cmp_le0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<3> (ms1/Mcompar_o_cmp_le0000_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<4> (ms1/Mcompar_o_cmp_le0000_cy<4>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<5> (ms1/Mcompar_o_cmp_le0000_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<6> (ms1/Mcompar_o_cmp_le0000_cy<6>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<7> (ms1/Mcompar_o_cmp_le0000_cy<7>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<8> (ms1/Mcompar_o_cmp_le0000_cy<8>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<9> (ms1/Mcompar_o_cmp_le0000_cy<9>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<10> (ms1/Mcompar_o_cmp_le0000_cy<10>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<11> (ms1/Mcompar_o_cmp_le0000_cy<11>)
+     MUXCY:CI->O           1   0.064   0.000  ms1/Mcompar_o_cmp_le0000_cy<12> (ms1/Mcompar_o_cmp_le0000_cy<12>)
+     MUXCY:CI->O           5   0.303   0.921  ms1/Mcompar_o_cmp_le0000_cy<13> (q1)
+     OBUF:I->O                 5.644          L1_OBUF (L1)
+    ----------------------------------------
+    Total                     10.653ns (8.486ns logic, 2.167ns route)
+                                       (79.7% logic, 20.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/mr1_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/mr1 (LATCH)
+  Destination:       r1 (PAD)
+  Source Clock:      ligh1/mr1_not0001 falling
+
+  Data Path: ligh1/mr1 to r1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/mr1 (ligh1/mr1)
+     OBUF:I->O                 5.644          r1_OBUF (r1)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/mr2_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/mr2 (LATCH)
+  Destination:       r2 (PAD)
+  Source Clock:      ligh1/mr2_not0001 falling
+
+  Data Path: ligh1/mr2 to r2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/mr2 (ligh1/mr2)
+     OBUF:I->O                 5.644          r2_OBUF (r2)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/state_cmp_le0000'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              8.885ns (Levels of Logic = 2)
+  Source:            ligh1/mr4_mux0001 (LATCH)
+  Destination:       r3 (PAD)
+  Source Clock:      ligh1/state_cmp_le0000 falling
+
+  Data Path: ligh1/mr4_mux0001 to r3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               4   0.633   1.256  ligh1/mr4_mux0001 (ligh1/mr4_mux0001)
+     LUT4:I0->O            1   0.551   0.801  ligh1/mr4 (r4_OBUF)
+     OBUF:I->O                 5.644          r4_OBUF (r4)
+    ----------------------------------------
+    Total                      8.885ns (6.828ns logic, 2.057ns route)
+                                       (76.8% logic, 23.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'q1'
+  Total number of paths / destination ports: 12 / 2
+-------------------------------------------------------------------------
+Offset:              12.054ns (Levels of Logic = 4)
+  Source:            ligh1/state_FSM_FFd1 (FF)
+  Destination:       r3 (PAD)
+  Source Clock:      q1 rising
+
+  Data Path: ligh1/state_FSM_FFd1 to r3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              8   0.720   1.422  ligh1/state_FSM_FFd1 (ligh1/state_FSM_FFd1)
+     LUT3:I0->O            2   0.551   0.945  ligh1/mr1_mux000321 (ligh1/N6)
+     LUT3:I2->O            1   0.551   0.869  ligh1/mr3_SW0 (N2)
+     LUT4:I2->O            1   0.551   0.801  ligh1/mr3 (r3_OBUF)
+     OBUF:I->O                 5.644          r3_OBUF (r3)
+    ----------------------------------------
+    Total                     12.054ns (8.017ns logic, 4.037ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/state_cmp_le0001'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              10.305ns (Levels of Logic = 3)
+  Source:            ligh1/mr4_mux0002 (LATCH)
+  Destination:       r3 (PAD)
+  Source Clock:      ligh1/state_cmp_le0001 falling
+
+  Data Path: ligh1/mr4_mux0002 to r3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               4   0.633   1.256  ligh1/mr4_mux0002 (ligh1/mr4_mux0002)
+     LUT3:I0->O            1   0.551   0.869  ligh1/mr4_SW0 (N01)
+     LUT4:I2->O            1   0.551   0.801  ligh1/mr4 (r4_OBUF)
+     OBUF:I->O                 5.644          r4_OBUF (r4)
+    ----------------------------------------
+    Total                     10.305ns (7.379ns logic, 2.926ns route)
+                                       (71.6% logic, 28.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/my1_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/my1 (LATCH)
+  Destination:       y1 (PAD)
+  Source Clock:      ligh1/my1_not0001 falling
+
+  Data Path: ligh1/my1 to y1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/my1 (ligh1/my1)
+     OBUF:I->O                 5.644          y1_OBUF (y1)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/my2_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/my2 (LATCH)
+  Destination:       y2 (PAD)
+  Source Clock:      ligh1/my2_not0001 falling
+
+  Data Path: ligh1/my2 to y2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/my2 (ligh1/my2)
+     OBUF:I->O                 5.644          y2_OBUF (y2)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/my3_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/my3 (LATCH)
+  Destination:       y3 (PAD)
+  Source Clock:      ligh1/my3_not0001 falling
+
+  Data Path: ligh1/my3 to y3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/my3 (ligh1/my3)
+     OBUF:I->O                 5.644          y3_OBUF (y3)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ligh1/my4_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            ligh1/my4 (LATCH)
+  Destination:       y4 (PAD)
+  Source Clock:      ligh1/my4_not0001 falling
+
+  Data Path: ligh1/my4 to y4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  ligh1/my4 (ligh1/my4)
+     OBUF:I->O                 5.644          y4_OBUF (y4)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.62 secs
+ 
+--> 
+
+Total memory usage is 4513464 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   57 (   0 filtered)
+Number of infos    :   37 (   0 filtered)
+

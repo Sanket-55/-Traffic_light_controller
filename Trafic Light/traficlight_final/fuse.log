@@ -1,0 +1,26 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/SANKET 55/Desktop/traficlight_final/tpm_isim_beh.exe -prj C:/Users/SANKET 55/Desktop/traficlight_final/tpm_beh.prj work.tpm 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd" into library work
+Parsing VHDL file "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd" into library work
+Parsing VHDL file "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd" into library work
+Parsing VHDL file "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity master_clock [master_clock_default]
+Compiling architecture behavioral of entity lights [lights_default]
+Compiling architecture behavioral of entity left [left_default]
+Compiling architecture behavioral of entity tpm
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: The system cannot find the path specified, "isim\tpm_isim_beh.exe.sim\libPortability.dll".
+Compiled 11 VHDL Units
+Built simulation executable C:/Users/SANKET 55/Desktop/traficlight_final/tpm_isim_beh.exe
+Fuse Memory Usage: 34480 KB
+Fuse CPU Usage: 530 ms

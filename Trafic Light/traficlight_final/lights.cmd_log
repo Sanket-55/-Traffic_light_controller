@@ -1,0 +1,4 @@
+vhdtdtfi -lib work lights.vhd -prj traficlight_final -o lights.spl -module lights -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 lights.spl {C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/lights.sym} 
+vhdtdtfi -prj traficlight_final -o "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/lights.vhi" -module lights -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work lights.vhd 
+vhdtdtfi -prj traficlight_final -o "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/lights.vhi" -module lights -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work lights.vhd 

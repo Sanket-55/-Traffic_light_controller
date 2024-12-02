@@ -1,0 +1,30 @@
+Command line:
+   tpm_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  57484
+
+Mon Dec 12 20:37:16 2022
+
+
+ Elaboration Time: 0.046875 sec
+
+ Current Memory Usage: 5149.8 Meg
+
+ Total Signals          : 43
+ Total Nets             : 46
+ Total Signal Drivers   : 21
+ Total Blocks           : 7
+ Total Primitive Blocks : 6
+ Total Processes        : 5
+ Total Traceable Variables  : 10
+ Total Scalar Nets and Variables : 424
+Total Line Count : 80
+Total Line Count : 80
+
+ Total Simulation Time: 811.859 sec
+
+ Current Memory Usage: 4677.94 Meg
+
+Mon Dec 12 20:51:11 2022
+

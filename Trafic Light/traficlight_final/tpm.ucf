@@ -1,0 +1,19 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "clk" LOC = P79;
+NET "g1" LOC = P26;
+NET "g2" LOC = P39;
+NET "g3" LOC = P51;
+NET "g4" LOC = P65;
+NET "L1" LOC = P78;
+NET "L2" LOC = P81;
+NET "L3" LOC = P85;
+NET "L4" LOC = P87;
+NET "r1" LOC = P20;
+NET "r2" LOC = P36;
+NET "r3" LOC = P46;
+NET "r4" LOC = P63;
+NET "y1" LOC = P28;
+NET "y2" LOC = P42;
+NET "y3" LOC = P57;

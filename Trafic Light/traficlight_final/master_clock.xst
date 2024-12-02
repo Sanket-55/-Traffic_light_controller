@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/SANKET 55/Desktop/vhdl/traficlight_final/xst"
+elaborate
+-ifn master_clock.prj
+-ifmt mixed

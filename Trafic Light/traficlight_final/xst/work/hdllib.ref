@@ -1,0 +1,8 @@
+EN left NULL "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd" sub00/vhpl06 1670857527
+AR left behavioral "C:/Users/SANKET 55/Desktop/traficlight_final/left.vhd" sub00/vhpl07 1670857528
+EN master_clock NULL "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd" sub00/vhpl01 1670857523
+AR master_clock behavioral "C:/Users/SANKET 55/Desktop/traficlight_final/master_clock.vhd" sub00/vhpl02 1670857524
+EN tpm NULL "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd" sub00/vhpl00 1670857529
+EN lights NULL "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd" sub00/vhpl03 1670857525
+AR lights behavioral "C:/Users/SANKET 55/Desktop/traficlight_final/lights.vhd" sub00/vhpl04 1670857526
+AR tpm behavioral "C:/Users/SANKET 55/Desktop/traficlight_final/tpm.vhd" sub00/vhpl05 1670857530

@@ -1,0 +1,4 @@
+vhdl work "master_clock.vhd"
+vhdl work "lights.vhd"
+vhdl work "left.vhd"
+vhdl work "tpm.vhd"
